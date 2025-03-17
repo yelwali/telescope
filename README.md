@@ -1,52 +1,45 @@
-# AI for Gamma Telescope Classification
+# 🏥 AI pour la Détection des Maladies Cardiovasculaires
 
-## Description
-Ce projet vise à classifier les données issues des télescopes gamma en utilisant des techniques d'intelligence artificielle. Il inclut un prétraitement avancé des données et l'application de plusieurs modèles de machine learning pour obtenir des performances optimales.
+## Description  
+Ce projet vise à prédire la présence de maladies cardiovasculaires en utilisant des techniques d'intelligence artificielle. Il comprend un prétraitement avancé des données et l'application de plusieurs modèles de machine learning pour optimiser les performances.  
 
-## Prétraitement des données
-Afin d'assurer une meilleure qualité des données et d'équilibrer la distribution des classes, les techniques suivantes ont été employées :
-- **SMOTE (Synthetic Minority Over-sampling Technique)** pour équilibrer le dataset.
-- **Yeo-Johnson Transformation** pour normaliser les données.
-- **RobustScaler** pour réduire l'impact des valeurs aberrantes.
+## Prétraitement des données  
+Afin d'améliorer la qualité des données et de garantir un bon équilibre des classes, les méthodes suivantes ont été appliquées :  
+- **KNNImputer** pour l'imputation des valeurs manquantes.  
+- **RobustScaler** pour normaliser les données et réduire l'effet des valeurs aberrantes.  
+- **SMOTE (Synthetic Minority Over-sampling Technique)** pour équilibrer le dataset.  
 
-## Modèles appliqués et performances
-Plusieurs modèles de machine learning ont été testés et comparés en fonction de leur précision, rappel et exactitude :
+## Modèles appliqués et performances  
+Plusieurs modèles de machine learning ont été testés et comparés selon leur précision et leur rappel :  
 
-| Modèle                  | Accuracy  | Precision | Recall   |
-|--------------------------|-----------|-----------|-----------|
-| Logistic Regression      | 0.800357  | 0.807610  | 0.788597  |
-| Decision Tree           | 0.835104  | 0.864331  | 0.795166  |
-| Extreme Gradient Boosting | 0.885907  | 0.903201  | 0.864497  |
-| Gradient Boosting       | 0.814426  | 0.811462  | 0.819330  |
-| Random Forest          | 0.895921  | 0.905862  | 0.883715  |
-| Support Vector Machine | 0.895557  | 0.879117  | 0.917124  |
-| Neural Networks        | 0.85      | 0.85      | 0.85      |
+| Modèle            | Accuracy | Recall  |
+|------------------|----------|---------|
+| Régression linéaire  | 0.565  | 0.612  |
+| Decision Tree       | 0.737  | 0.907  |
+| XGBoost            | 0.738  | 0.912  |
+| AdaBoost           | 0.738  | 0.935  |
+| RandomForest       | 0.746  | 0.907  |
 
-### Détail des performances des réseaux de neurones
+📌 **Meilleurs modèles** :  
+- **RandomForest** : Accuracy = **0.746**, Recall = **0.907**  
+- **AdaBoost** : Accuracy = **0.738**, Recall = **0.935**  
 
-| Classe | Precision | Recall | F1-Score | Support |
-|--------|-----------|--------|----------|---------|
-| g      | 0.85      | 0.86   | 0.85     | 2498    |
-| h      | 0.86      | 0.84   | 0.85     | 2435    |
-| **Moyenne macro** | 0.85 | 0.85 | 0.85 | 4933 |
-| **Moyenne pondérée** | 0.85 | 0.85 | 0.85 | 4933 |
+## Installation  
+### Prérequis  
+- Python 3.x  
+- Bibliothèques Python suivantes :  
+  - `pandas`  
+  - `numpy`  
+  - `scikit-learn`  
+  - `imbalanced-learn`  
+  - `xgboost`  
+  - `matplotlib`  
+  - `seaborn`  
 
-## Installation
-### Prérequis
-- Python 3.x
-- Bibliothèques Python suivantes :
-  - `pandas`
-  - `numpy`
-  - `scikit-learn`
-  - `imbalanced-learn`
-  - `xgboost`
-  - `tensorflow` / `keras`
-  - `matplotlib`
-  - `seaborn`
-
-### Installation des dépendances
+### Installation des dépendances  
 ```bash
-pip install pandas numpy scikit-learn imbalanced-learn xgboost tensorflow keras matplotlib seaborn
+pip install pandas numpy scikit-learn imbalanced-learn xgboost matplotlib seaborn
+
 ```
 
 ## Utilisation
