@@ -1,44 +1,49 @@
-# 🏥 AI pour la Détection des Maladies Cardiovasculaires
+# 🏥 AI for Gamma Telescope Classification
+Ce projet vise à classer les événements détectés par un télescope gamma en utilisant différentes techniques d'apprentissage automatique. L'objectif est de distinguer les signaux gamma (classe positive) du bruit de fond (classe négative) avec une précision élevée.
 
-## Description  
-Ce projet vise à prédire la présence de maladies cardiovasculaires en utilisant des techniques d'intelligence artificielle. Il comprend un prétraitement avancé des données et l'application de plusieurs modèles de machine learning pour optimiser les performances.  
+## Pré-traitement des données
 
-## Prétraitement des données  
-Afin d'améliorer la qualité des données et de garantir un bon équilibre des classes, les méthodes suivantes ont été appliquées :  
-- **KNNImputer** pour l'imputation des valeurs manquantes.  
-- **RobustScaler** pour normaliser les données et réduire l'effet des valeurs aberrantes.  
-- **SMOTE (Synthetic Minority Over-sampling Technique)** pour équilibrer le dataset.  
+1. **Normalisation des données** : 
+   - Les données numériques ont été normalisées en utilisant le `RobustScaler` pour réduire l'effet des valeurs aberrantes.
+   - Une transformation de normalisation supplémentaire a été appliquée avec `PowerTransformer` (méthode Yeo-Johnson) pour stabiliser la variance et rendre les données plus gaussiennes.
 
-## Modèles appliqués et performances  
-Plusieurs modèles de machine learning ont été testés et comparés selon leur précision et leur rappel :  
+2. **Équilibrage des classes** :
+   - Le déséquilibre des classes a été corrigé en utilisant la technique **SMOTE** (Synthetic Minority Over-sampling Technique). Cela permet de générer des échantillons synthétiques pour la classe minoritaire, améliorant ainsi la performance des modèles sur cette classe.
 
-| Modèle            | Accuracy | Recall  |
-|------------------|----------|---------|
-| Régression linéaire  | 0.565  | 0.612  |
-| Decision Tree       | 0.737  | 0.907  |
-| XGBoost            | 0.738  | 0.912  |
-| AdaBoost           | 0.738  | 0.935  |
-| RandomForest       | 0.746  | 0.907  |
+## Modèles utilisés et résultats
 
-📌 **Meilleurs modèles** :  
-- **RandomForest** : Accuracy = **0.746**, Recall = **0.907**  
-- **AdaBoost** : Accuracy = **0.738**, Recall = **0.935**  
+Plusieurs modèles d'apprentissage automatique ont été entraînés et évalués sur le dataset. Voici un résumé de leurs performances :
 
-## Installation  
-### Prérequis  
-- Python 3.x  
-- Bibliothèques Python suivantes :  
-  - `pandas`  
-  - `numpy`  
-  - `scikit-learn`  
-  - `imbalanced-learn`  
-  - `xgboost`  
-  - `matplotlib`  
-  - `seaborn`  
+| Modèle                        | Accuracy | Precision | Recall |
+|-------------------------------|----------|-----------|--------|
+| Logistic Regression           | 0.800357 | 0.807610  | 0.788597 |
+| Decision Tree                 | 0.835104 | 0.864331  | 0.795166 |
+| Extreme Gradient Boosting     | 0.885907 | 0.903201  | 0.864497 |
+| Gradient Boosting             | 0.814426 | 0.811462  | 0.819330 |
+| Random Forest                 | 0.895921 | 0.905862  | 0.883715 |
+| Support Vector Machine (SVM)  | 0.895557 | 0.879117  | 0.917124 |
 
-### Installation des dépendances  
-```bash
-pip install pandas numpy scikit-learn imbalanced-learn xgboost matplotlib seaborn
+### Analyse des résultats
+- **Random Forest** et **SVM** ont obtenu les meilleures performances en termes d'**Accuracy** et de **Recall**.
+- **Extreme Gradient Boosting** a également montré des résultats compétitifs, avec une précision élevée.
+- **Logistic Regression** et **Gradient Boosting** ont des performances légèrement inférieures mais restent acceptables.
+
+## Conclusion
+Le modèle **Random Forest** semble être le meilleur choix pour ce projet, offrant un bon équilibre entre précision et rappel. Cependant, le **SVM** pourrait être préféré si le rappel est une métrique plus critique pour l'application.
+
+## Prochaines étapes
+- Explorer l'optimisation des hyperparamètres pour améliorer davantage les performances.
+- Tester des architectures de réseaux de neurones pour comparer avec les modèles traditionnels.
+- Déployer le modèle sélectionné dans un environnement de production pour une classification en temps réel.
+
+## Dépendances
+- Python 3.x
+- Bibliothèques : `scikit-learn`, `imbalanced-learn`, `pandas`, `numpy`, `xgboost`
+
+## Installation
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/ai-gamma-telescope.git
 
 ```
 
