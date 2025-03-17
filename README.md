@@ -20,6 +20,16 @@ Plusieurs modèles de machine learning ont été testés et comparés en fonctio
 | Gradient Boosting       | 0.814426  | 0.811462  | 0.819330  |
 | Random Forest          | 0.895921  | 0.905862  | 0.883715  |
 | Support Vector Machine | 0.895557  | 0.879117  | 0.917124  |
+| Neural Networks        | 0.85      | 0.85      | 0.85      |
+
+### Détail des performances des réseaux de neurones
+
+| Classe | Precision | Recall | F1-Score | Support |
+|--------|-----------|--------|----------|---------|
+| g      | 0.85      | 0.86   | 0.85     | 2498    |
+| h      | 0.86      | 0.84   | 0.85     | 2435    |
+| **Moyenne macro** | 0.85 | 0.85 | 0.85 | 4933 |
+| **Moyenne pondérée** | 0.85 | 0.85 | 0.85 | 4933 |
 
 ## Installation
 ### Prérequis
@@ -30,12 +40,13 @@ Plusieurs modèles de machine learning ont été testés et comparés en fonctio
   - `scikit-learn`
   - `imbalanced-learn`
   - `xgboost`
+  - `tensorflow` / `keras`
   - `matplotlib`
   - `seaborn`
 
 ### Installation des dépendances
 ```bash
-pip install pandas numpy scikit-learn imbalanced-learn xgboost matplotlib seaborn
+pip install pandas numpy scikit-learn imbalanced-learn xgboost tensorflow keras matplotlib seaborn
 ```
 
 ## Utilisation
@@ -48,4 +59,6 @@ Ce projet a été réalisé dans le cadre d'un projet de fin d'études sous la s
 
 ## Licence
 Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
+
+
 
